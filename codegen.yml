@@ -1,0 +1,6 @@
+overwrite: true
+schema: "https://graphqlzero.almansi.me/api"
+generates:
+  ./src/blog/vo/index.ts:
+    plugins:
+      - "typescript"
