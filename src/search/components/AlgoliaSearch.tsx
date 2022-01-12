@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { searchHN } from "../services/clientHN";
 import { useGetHackerNewsQuery } from "../services/hnAPI";
+import { StringParam, useQueryParam } from "use-query-params";
 
 const debounce = (func, delay: number) => {
   let timer;
@@ -15,20 +16,36 @@ const debounce = (func, delay: number) => {
   };
 };
 
+const defaultQ = "react";
+
 function AlgoliaSearch() {
   const [result, setResult] = useState({ hits: [] });
-  const [search, setSearch] = useState("react");
-  const { data, error, isLoading } = useGetHackerNewsQuery(search);
+  const [q, setQ] = useQueryParam("q", StringParam);
+  // search and setSearch was used in a previous example before useQueryParam was added
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [search, setSearch] = useState(defaultQ);
+  const { data, error, isLoading } = useGetHackerNewsQuery(q ?? defaultQ);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await searchHN(search, { hitsPerPage: 10 });
-      setResult(result);
-    };
-    fetchData().then();
-  }, [search]);
+    if (q) return;
+    setQ(defaultQ);
+  }, [setQ]);
+
+  useEffect(
+    function handleWithoutRTK() {
+      async function fetchData(): Promise<undefined> {
+        if (!q) return;
+        const result = await searchHN(q, { hitsPerPage: 10 });
+        setResult(result);
+      }
+
+      fetchData().then();
+    },
+    [q],
+  );
 
   const setSearchDebounced = useMemo(() => debounce(setSearch, 350), []);
+  const setQDebounced = useMemo(() => debounce(setQ, 350), [setQ]);
 
   return (
     <>
@@ -37,7 +54,11 @@ function AlgoliaSearch() {
         type="text"
         id="search"
         name="name"
-        onChange={e => setSearchDebounced(e.target.value)}
+        defaultValue={q ?? defaultQ}
+        onChange={e => {
+          setSearchDebounced(e.target.value);
+          setQDebounced(e.target.value);
+        }}
         style={{ fontSize: "1.5rem" }}
       />
       <div style={{ margin: 8 }}>
