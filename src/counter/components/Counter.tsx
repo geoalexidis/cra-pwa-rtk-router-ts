@@ -11,18 +11,20 @@ export function Counter() {
   const asyncHalfCounter = useAppSelector(state => state.counter.asyncHalfCounter);
   const [incrementAmount, setIncrementAmount] = useState("2");
 
-  // async effect example
-  useEffect(() => {
-    async function fetchData() {
-      // without await for continuing the execution
-      halfAsyncCounter().then();
-      // await for operation to finish
-      const response = await dispatch(doubleAsyncCounter());
-      console.info("response from doubleAsyncCounter", response);
-    }
+  useEffect(
+    function asyncEffectExample() {
+      async function fetchData() {
+        // without await for continuing the execution
+        halfAsyncCounter().then();
+        // await for operation to finish
+        const response = await dispatch(doubleAsyncCounter());
+        console.info("response from doubleAsyncCounter", response);
+      }
 
-    fetchData().then();
-  }, [count]);
+      fetchData().then();
+    },
+    [count],
+  );
 
   const incrementValue = Number(incrementAmount) || 0;
 
