@@ -11,7 +11,7 @@ function Pokemon({ name, options = {} }) {
   return (
     <>
       {error ? (
-        <>Oh no, there was an error</>
+        <>{JSON.stringify(error)}</>
       ) : isLoading ? (
         <>Loading...</>
       ) : data ? (
