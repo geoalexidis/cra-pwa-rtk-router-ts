@@ -1,4 +1,16 @@
+# Introduction
+
+The example utilizes:
+- [React](https://reactjs.org/) as Frontend Renderer
+- [React Router DOM](https://www.npmjs.com/package/react-router-dom) as Frontend Router
+- [Redux](https://redux.js.org/) as Global Store in combination with [Redux Toolkit](https://redux-toolkit.js.org/) 
+- [Redux Toolkit Query (RTK)](https://redux-toolkit.js.org/rtk-query/overview) fetching Data from a REST API and GraphQL
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+
+## Demo
+
+A live demo is available [here](https://crasy.netlify.app/)
 
 ## Available Scripts
 
