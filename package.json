@@ -1,10 +1,14 @@
 {
-  "name": "cra-template-rtk-query-router-typescript",
+  "name": "crasy",
   "description": "Create React App Template with Redux Toolkit Query, React Router and TypeScript",
   "keywords": [
     "react",
     "redux",
     "redux-toolkit",
+    "rtk",
+    "rtk-query",
+    "pwa",
+    "progressive-web-app",
     "react-router",
     "typescript"
   ],
