@@ -47,6 +47,15 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <span>
+          <a
+            className="App-link"
+            href="https://github.com/geoalexidis/crasy/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            About and GH Repository
+          </a>
+          <span>, </span>
           <span>Learn </span>
           <a className="App-link" href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">
             React
