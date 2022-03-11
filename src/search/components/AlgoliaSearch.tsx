@@ -26,10 +26,10 @@ function AlgoliaSearch() {
   const [search, setSearch] = useState(defaultQ);
   const { data, error, isLoading } = useGetHackerNewsQuery(q ?? defaultQ);
 
-  useEffect(() => {
+  useEffect(function initDefaultQ() {
     if (q) return;
     setQ(defaultQ);
-  }, [setQ]);
+  }, [setQ, q]);
 
   useEffect(
     function handleWithoutRTK() {
