@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 const Post: React.FC = () => {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetPostQuery(id || 1);
+  const { data, error, isLoading } = useGetPostQuery(Number(id) || 1);
 
   if (error) {
     return <div>Error!</div>;

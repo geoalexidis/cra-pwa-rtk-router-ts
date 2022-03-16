@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useGetPostsQuery } from "../services/blogAPI";
 
 const Blog: React.FC = () => {
-  const { data: posts, error, isLoading } = useGetPostsQuery(null);
+  const { data: posts = [], error, isLoading } = useGetPostsQuery(null);
 
   if (error) {
     return <div>Error!</div>;

@@ -1,30 +1,17 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { request, gql, ClientError } from "graphql-request";
-
-const graphqlBaseQuery =
-  ({ baseUrl }: { baseUrl: string }) =>
-  async ({ body }: { body: string }) => {
-    try {
-      const result = await request(baseUrl, body);
-      return { data: result };
-    } catch (error) {
-      if (error instanceof ClientError) {
-        return { error: { status: error.response.status, data: error } };
-      }
-      return { error: { status: 500, data: error } };
-    }
-  };
+import { graphqlRequestBaseQuery } from "@rtk-query/graphql-request-base-query";
+import { gql } from "graphql-request";
 
 export const blogApi = createApi({
   reducerPath: "blog",
-  baseQuery: graphqlBaseQuery({
-    baseUrl: "https://graphqlzero.almansi.me/api",
+  baseQuery: graphqlRequestBaseQuery({
+    url: "https://graphqlzero.almansi.me/api",
   }),
   endpoints: builder => ({
-    getPosts: builder.query({
+    getPosts: builder.query<any[], any>({
       query: () => ({
-        body: gql`
-          query {
+        document: gql`
+          query GetPosts {
             posts {
               data {
                 id
@@ -34,21 +21,24 @@ export const blogApi = createApi({
           }
         `,
       }),
-      transformResponse: response => response.posts.data,
+      transformResponse: (response: { posts: { data: any[] } }) => response.posts.data,
     }),
-    getPost: builder.query({
-      query: id => ({
-        body: gql`
-            query {
-                post(id: ${id}) {
-                    id
-                    title
-                    body
-                }
+    getPost: builder.query<any, number>({
+      query: (id = 0) => ({
+        document: gql`
+          query GetPost($id: ID!) {
+            post(id: $id) {
+              id
+              title
+              body
             }
+          }
         `,
+        variables: {
+          id,
+        },
       }),
-      transformResponse: response => response.post,
+      transformResponse: (response: any) => response.post,
     }),
   }),
 });
