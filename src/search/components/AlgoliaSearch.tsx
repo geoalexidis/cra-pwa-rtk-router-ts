@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { searchHN } from "../services/clientHN";
-import { useGetHackerNewsQuery } from "../services/hnAPI";
+import { useGetHackerNewsQuery } from "../services/hnApi";
 import { StringParam, useQueryParam } from "use-query-params";
 
 const debounce = (func, delay: number) => {

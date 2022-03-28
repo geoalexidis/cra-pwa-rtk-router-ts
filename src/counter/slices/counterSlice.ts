@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../state/init/store";
-import { fetchCount } from "../services/counterAPI";
+import { fetchCount } from "../services/counterApi";
 
 export enum CounterStatus {
   idle = "idle",

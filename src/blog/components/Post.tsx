@@ -1,5 +1,5 @@
 import React from "react";
-import { useGetPostQuery } from "../services/blogAPI";
+import { useGetPostQuery } from "../services/blogApi";
 import { useParams } from "react-router-dom";
 
 const Post: React.FC = () => {

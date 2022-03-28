@@ -1,7 +1,7 @@
 // We can also write thunks by hand, which may contain both sync and async logic.
 // Here's an example of conditionally dispatching actions based on current state.
 import { AppThunk, dispatch, getState } from "../../state/init/store";
-import { fetchCount } from "../services/counterAPI";
+import { fetchCount } from "../services/counterApi";
 import { asyncDoubleCounter, asyncHalfCounter, incrementByAmount, selectCount } from "../slices/counterSlice";
 
 export const incrementIfOdd =

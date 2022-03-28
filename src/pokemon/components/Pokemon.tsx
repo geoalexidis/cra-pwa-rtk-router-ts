@@ -1,6 +1,6 @@
 import React from "react";
 import "../../App.css";
-import { useGetPokemonByNameQuery } from "../services/pokemonAPI";
+import { useGetPokemonByNameQuery } from "../services/pokemonApi";
 
 function Pokemon({ name, options = {} }) {
   // Using a query hook automatically fetches data and returns query values

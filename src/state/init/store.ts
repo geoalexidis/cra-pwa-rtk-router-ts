@@ -1,11 +1,11 @@
 import { configureStore, ThunkAction, Action, combineReducers } from "@reduxjs/toolkit";
 import counterReducer from "../../counter/slices/counterSlice";
-import { pokemonApi } from "../../pokemon/services/pokemonAPI";
+import { pokemonApi } from "../../pokemon/services/pokemonApi";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { createBrowserHistory } from "history";
 import { createReduxHistoryContext } from "redux-first-history";
-import { hnApi } from "../../search/services/hnAPI";
-import { blogApi } from "../../blog/services/blogAPI";
+import { hnApi } from "../../search/services/hnApi";
+import { blogApi } from "../../blog/services/blogApi";
 
 const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
   history: createBrowserHistory(),

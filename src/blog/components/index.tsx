@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useGetPostsQuery } from "../services/blogAPI";
+import { useGetPostsQuery } from "../services/blogApi";
 
 const Blog: React.FC = () => {
   const { data: posts = [], error, isLoading } = useGetPostsQuery(null);

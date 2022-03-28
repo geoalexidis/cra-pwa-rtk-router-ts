@@ -3,7 +3,7 @@ import { graphqlRequestBaseQuery } from "@rtk-query/graphql-request-base-query";
 import { gql } from "graphql-request";
 
 export const blogApi = createApi({
-  reducerPath: "blog",
+  reducerPath: "blogApi",
   baseQuery: graphqlRequestBaseQuery({
     url: "https://graphqlzero.almansi.me/api",
   }),
