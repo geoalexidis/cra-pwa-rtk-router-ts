@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { searchHN } from "../services/clientHN";
+import { searchHn } from "../services/clientHn";
 import { useGetHackerNewsQuery } from "../services/hnApi";
 import { StringParam, useQueryParam } from "use-query-params";
 
@@ -35,7 +35,7 @@ function AlgoliaSearch() {
     function handleWithoutRTK() {
       async function fetchData(): Promise<undefined> {
         if (!q) return;
-        const result = await searchHN(q, { hitsPerPage: 10 });
+        const result = await searchHn(q, { hitsPerPage: 10 });
         setResult(result);
       }
 

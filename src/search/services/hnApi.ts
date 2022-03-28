@@ -1,6 +1,6 @@
 // Need to use the React-specific entry point to import createApi
 import { BaseQueryFn, createApi } from "@reduxjs/toolkit/query/react";
-import { searchHN } from "./clientHN";
+import { searchHn } from "./clientHn";
 import { RequestOptions } from "@algolia/transporter";
 import { SearchOptions } from "@algolia/client-search";
 
@@ -8,7 +8,7 @@ const algoliaBaseQuery =
   (): BaseQueryFn<{ query: string; options?: RequestOptions & SearchOptions }> =>
   async ({ query, options }) => {
     try {
-      const result = await searchHN(query, options);
+      const result = await searchHn(query, options);
       return { data: result };
     } catch (error) {
       return { error };
