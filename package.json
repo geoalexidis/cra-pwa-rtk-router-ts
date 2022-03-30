@@ -62,9 +62,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "graphcms-to-ts": "graphql-codegen --config codegen.yml",
-    "graphcms-to-schema": "get-graphql-schema https://graphqlzero.almansi.me/api > schema.graphql",
-    "import-all": "npm run graphcms-to-schema && npm run graphcms-to-ts"
+    "grapqhlzero-to-ts": "graphql-codegen --config codegen.yml",
+    "grapqhlzero-to-schema": "get-graphql-schema https://graphqlzero.almansi.me/api > schema.graphql",
+    "import-all": "npm run grapqhlzero-to-schema && npm run grapqhlzero-to-ts"
   },
   "eslintConfig": {
     "extends": [
