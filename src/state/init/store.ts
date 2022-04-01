@@ -16,7 +16,6 @@ export const store = configureStore({
     router: routerReducer,
     counter: counterReducer,
     // Add the generated reducer as a specific top-level slice
-    // [pokemonApi.reducerPath]: pokemonApi.reducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
     [hnApi.reducerPath]: hnApi.reducer,
     [blogApi.reducerPath]: blogApi.reducer,
