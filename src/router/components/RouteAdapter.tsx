@@ -29,5 +29,5 @@ export const RouteAdapter: React.FC = ({ children }) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-  return children({ history: adaptedHistory, reactRouterLocation });
+  return children({ history: adaptedHistory, location: reactRouterLocation });
 };
