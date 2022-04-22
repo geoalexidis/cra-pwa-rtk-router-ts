@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { searchHn } from "../services/clientHn";
 import { useGetHackerNewsQuery } from "../services/hnApi";
-import { StringParam, useQueryParam } from "use-query-params";
+import { StringParam, useQueryParam, useQueryParams, withDefault } from "use-query-params";
 
 const debounce = (func, delay: number) => {
   let timer;
@@ -26,10 +26,15 @@ function AlgoliaSearch() {
   const [search, setSearch] = useState(defaultQ);
   const { data, error, isLoading } = useGetHackerNewsQuery(q ?? defaultQ);
 
-  useEffect(function initDefaultQ() {
-    if (q) return;
-    setQ(defaultQ);
-  }, [setQ, q]);
+  useEffect(
+    function initDefaultQ() {
+      if (q) return;
+      // workaround since setQ directly fails with router. possible due workaround in RouteAdapter.tsx
+      // setQ(defaultQ);
+      setTimeout(() => setQ(defaultQ), 0);
+    },
+    [setQ, q],
+  );
 
   useEffect(
     function handleWithoutRTK() {
