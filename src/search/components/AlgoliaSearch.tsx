@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { searchHn } from "../services/clientHn";
 import { useGetHackerNewsQuery } from "../services/hnApi";
-import { StringParam, useQueryParam, useQueryParams, withDefault } from "use-query-params";
+import { StringParam, useQueryParam } from "use-query-params";
 
 const debounce = (func, delay: number) => {
   let timer;
