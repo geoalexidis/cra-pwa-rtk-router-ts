@@ -1,10 +1,10 @@
-import React, { useMemo } from "react";
+import React, { ReactNode, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Location } from "history";
 
 // workaround use-query-params adapter for React Router v6
 // https://github.com/pbeshai/use-query-params/issues/196#issuecomment-990584258
-export const RouteAdapter: React.FC = ({ children }) => {
+export const RouteAdapter: React.FC<{ children?: ReactNode }> = ({ children }) => {
   const reactRouterNavigate = useNavigate();
   const reactRouterLocation = useLocation();
 

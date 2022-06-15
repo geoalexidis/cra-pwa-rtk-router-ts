@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { history, store } from "./state/init/store";
@@ -10,7 +10,10 @@ import reportWebVitals from "./reportWebVitals";
 import { QueryParamProvider } from "use-query-params";
 import { RouteAdapter } from "./router/components/RouteAdapter";
 
-ReactDOM.render(
+const container = document.getElementById("root");
+const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Router history={history}>
@@ -20,7 +23,6 @@ ReactDOM.render(
       </Router>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root"),
 );
 
 // If you want your app to work offline and load faster, you can change
