@@ -19,7 +19,7 @@
     "@graphql-codegen/typescript": "^2.5.1",
     "@reduxjs/toolkit": "^1.8.2",
     "@rtk-query/graphql-request-base-query": "^2.1.0",
-    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^14.2.0",
     "@types/algoliasearch": "^4.0.0",
