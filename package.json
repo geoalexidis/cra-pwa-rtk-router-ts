@@ -15,7 +15,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@graphql-codegen/cli": "^2.6.2",
+    "@graphql-codegen/cli": "^2.16.5",
     "@graphql-codegen/typescript": "^2.5.1",
     "@reduxjs/toolkit": "^1.8.2",
     "@rtk-query/graphql-request-base-query": "^2.1.0",
